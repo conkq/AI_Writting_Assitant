@@ -1,0 +1,297 @@
+/* 基础按钮样式 */
+.submit-button {
+    padding: var(--spacing-md);
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: var(--spacing-md);
+}
+
+.submit-button:hover:not(:disabled) {
+    background-color: var(--color-primary-dark);
+}
+
+.submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 图标按钮 */
+.icon-button {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.icon-button:hover {
+    background-color: #e8f2ff;
+    border-color: var(--color-primary);
+}
+
+/* 添加卡片按钮 */
+.add-card-button {
+    flex: 1;
+    height: 38px;
+    padding: 0 10px;
+    background-color: var(--color-bg-secondary);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 14px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-card-button:hover {
+    background-color: #e8f2ff;
+    border-color: var(--color-primary);
+}
+
+/* 警告按钮 */
+.warning-button {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--color-warning);
+    color: var(--color-bg-primary);
+    border: 1px solid var(--color-warning);
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.warning-button:hover {
+    background-color: #E5A800;
+}
+
+/* 危险按钮 */
+.danger-button {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--color-bg-primary);
+    color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.danger-button:hover {
+    background-color: var(--color-danger);
+    color: var(--color-bg-primary);
+}
+
+/* 圆形危险按钮 */
+.circle-danger-button {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background-color: var(--color-bg-primary);
+    color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle-danger-button:hover {
+    background-color: var(--color-danger);
+    color: var(--color-bg-primary);
+}
+
+.circle-danger-button svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* 浮动按钮 */
+.floating-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+}
+
+.floating-button:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.floating-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.floating-button.circle-danger-button {
+    background-color: var(--color-bg-primary);
+    color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+}
+
+.floating-button.circle-danger-button:hover {
+    background-color: var(--color-danger);
+    color: var(--color-bg-primary);
+}
+
+.floating-button.add-paragraph-button {
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+    border: none;
+}
+
+.floating-button.add-paragraph-button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* 导入导出按钮 */
+#import-button,
+#export-button,
+#change-style-button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#import-button:hover,
+#export-button:hover,
+#change-style-button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* 提交按钮组 */
+.submit-button-group {
+    position: relative;
+    display: flex;
+    margin-bottom: var(--spacing-md);
+}
+
+/* 修改提交按钮样式以适应新布局 */
+.submit-button {
+    flex: 1;
+    margin: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* 模型选择器按钮 */
+.model-selector-button {
+    width: 32px;
+    height: 100%;
+    padding: 0;
+    background-color: var(--color-primary);
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-top-right-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+    cursor: pointer;
+    color: var(--color-bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+/* 跟随提交按钮的禁用状态 */
+.submit-button:disabled + .model-selector-button {
+    background-color: #ccc;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/* 非禁用状态下的悬停效果 */
+.model-selector-button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* 禁用状态下的悬停效果 */
+.submit-button:disabled + .model-selector-button:hover {
+    background-color: #bbb;
+}
+
+.model-selector-button svg {
+    transition: transform 0.2s;
+    transform: rotate(270deg);
+}
+
+.model-selector-button.active svg {
+    transform: rotate(90deg);
+}
+
+/* 模型下拉菜单 */
+.model-dropdown {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: -170px;
+    width: 160px;
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: all 0.2s;
+    z-index: 1000;
+}
+
+.model-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.model-option {
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--color-text-primary);
+    font-size: 14px;
+}
+
+.model-option:hover {
+    background-color: var(--color-bg-secondary);
+}
+
+.model-option.selected {
+    color: var(--color-primary);
+    background-color: rgba(0, 122, 255, 0.1);
+}
+
+.model-option.custom {
+    border-top: 1px solid var(--color-border);
+} 

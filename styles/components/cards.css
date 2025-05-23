@@ -1,0 +1,286 @@
+/* 提示词卡片 */
+.prompt-card {
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 36px;
+    height: 200px;
+    min-height: 120px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.prompt-card:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-bg-secondary);
+}
+
+.prompt-card.selected {
+    border-color: var(--color-primary);
+    background-color: #e8f2ff;
+}
+
+.prompt-card h3 {
+    font-size: 16px;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-primary);
+    flex-shrink: 0;
+}
+
+.prompt-card .card-prompt {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-sm);
+    white-space: pre-wrap;
+    overflow-y: auto;
+    max-height: 100px;
+    text-overflow: ellipsis;
+    position: relative;
+    flex: 1;
+    padding-right: 12px;
+    margin-right: -8px;
+}
+
+.prompt-card .card-prompt::-webkit-scrollbar {
+    width: 0;
+}
+
+.prompt-card .card-prompt:hover::-webkit-scrollbar {
+    width: 4px;
+}
+.prompt-card .card-prompt::after {
+    content: '';
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(transparent, var(--color-bg-primary));
+    pointer-events: none;
+}
+
+.prompt-card:hover .card-prompt::after {
+    background: linear-gradient(transparent, var(--color-bg-secondary));
+}
+
+.prompt-card.selected .card-prompt::after {
+    background: linear-gradient(transparent, #e8f2ff);
+}
+
+/* 段落卡片 */
+.paragraph-card {
+    position: absolute;
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-sm);
+    cursor: move;
+    padding-left: 32px;
+    min-width: 200px;
+    min-height: 100px;
+    width: 300px;
+    height: 150px;
+    resize: both;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+    will-change: transform;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.paragraph-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.paragraph-card.dragging {
+    opacity: 0.5;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+}
+
+.paragraph-card .card-content {
+    cursor: text;
+    outline: none;
+    min-height: 100%;
+    user-select: text;
+    overflow-y: auto;
+    flex: 1;
+    padding-right: var(--spacing-sm);
+}
+
+.paragraph-card .card-content[contenteditable="true"] {
+    background-color: var(--color-bg-primary);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-xs);
+    box-shadow: inset 0 0 0 2px var(--color-primary);
+}
+
+/* 卡片操作按钮 - 基础样式 */
+.card-actions {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    display: flex;
+    gap: var(--spacing-xs);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.card-action {
+    position: absolute;
+    top: 40px;
+    right: var(--spacing-sm);
+    display: flex;
+    gap: var(--spacing-xs);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.card-combine {
+    position: absolute;
+    top: 70px;
+    right: var(--spacing-sm);
+    display: flex;
+    gap: var(--spacing-xs);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.prompt-card:hover .card-actions,
+.paragraph-card:hover .card-actions {
+    opacity: 1;
+}
+
+.prompt-card:hover .card-action,
+.paragraph-card:hover .card-action {
+    opacity: 1;
+}
+
+.prompt-card:hover .card-combine,
+.paragraph-card:hover .card-combine {
+    opacity: 1;
+}
+
+/* 提示词卡片的按钮样式 */
+.prompt-card .card-actions button {
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.prompt-card .card-actions button:hover {
+    opacity: 1;
+}
+
+.prompt-card .card-action button:hover {
+    opacity: 1;
+}
+.prompt-card .card-combine button:hover {
+    opacity: 1;
+}
+
+.prompt-card .edit-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+    opacity: 1;
+}
+
+.prompt-card .delete-btn:hover {
+    background-color: var(--color-danger);
+    color: var(--color-bg-primary);
+    opacity: 1;
+}
+
+/* 段落卡片的按钮样式 */
+.paragraph-card .card-actions button {
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+
+.paragraph-card .card-action button {
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+
+.paragraph-card .card-combine button {
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+
+.paragraph-card .card-actions button:hover {
+    opacity: 1;
+    background-color: var(--color-danger);
+    color: var(--color-bg-primary);
+}
+
+.paragraph-card .card-action button:hover {
+    opacity: 1;
+    background-color: var(--color-danger);
+    color: var(--color-bg-primary);
+}
+
+.paragraph-card .card-combine button:hover {
+    opacity: 1;
+    background-color: var(--color-danger);
+    color: var(--color-bg-primary);
+}
+
+/* 卡片管理 */
+.card-management {
+    margin-bottom: var(--spacing-md);
+}
+
+.card-management-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+} 

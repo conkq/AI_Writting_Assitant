@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 卡片式改稿助手</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components/buttons.css">
+    <link rel="stylesheet" href="styles/components/cards.css">
+    <link rel="stylesheet" href="styles/components/dialogs.css">
+    <link rel="stylesheet" href="styles/components/ports.css">
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 左侧预制提示词栏 -->
+        <aside class="sidebar">
+            <div class="section-header">
+                <h2>预制提示词</h2>
+                <div class="header-actions">
+                    <button id="clear-connections" class="warning-button" title="清除所有连线">
+                        清除连线
+                    </button>
+                    <button id="clear-cards" class="circle-danger-button" title="删除所有卡片">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 提示词卡片区域 -->
+            <div class="prompt-cards">
+                <!-- 卡片将由 JS 动态添加 -->
+            </div>
+            <div class="sidebar-bottom">
+                <div class="card-management">
+                    <div class="card-management-buttons">
+                        <button id="add-card" class="add-card-button">+ 添加提示词卡片</button>
+                        <button id="import-cards" class="icon-button" title="导入卡片">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 16L12 4M12 16L8 12M12 16L16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M3 20H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <button id="export-cards" class="icon-button" title="导出卡片">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4L12 16M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M3 20H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 提交按钮组 -->
+                <div class="submit-button-group">
+                    <button id="submit-prompt" class="submit-button" disabled>提交</button>
+                    <button id="model-selector" class="model-selector-button" title="选择模型">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <div class="model-dropdown">
+                        <div class="model-option selected" data-model="tongyi">通义千问</div>
+                        <div class="model-option" data-model="deepseek-v3">DeepSeek-V3</div>
+                        <div class="model-option" data-model="deepseek-r1">DeepSeek-R1</div>
+                        <div class="model-option" data-model="ollama">本地模型</div>
+                        <div class="model-option custom" data-model="custom">自定义</div>
+                    </div>
+                </div>
+
+                <!-- 输出框 -->
+                <div class="output-container">
+                    <div id="prompt-output" class="output-content" draggable="true">等待提交...</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 右侧主聊天区域 -->
+        <main class="chat-container">
+            <header>
+                <h1>文档编辑</h1>
+                <div class="header-buttons">
+                    <button id="change-style-button">改变整体风格</button>
+                    <button id="import-button">导入 Markdown</button>
+                    <button id="export-button">导出 Markdown</button>
+                </div>
+            </header>
+            
+            <div id="paragraph-cards" class="paragraph-container">
+                <!-- 段落卡片将在这里动态生成 -->
+            </div>
+            <div class="floating-buttons">
+                <button id="clear-paragraphs" class="circle-danger-button floating-button" title="删除所有段落">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <button id="add-paragraph" class="add-paragraph-button floating-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 6L12 18M18 12L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+        </main>
+    </div>
+    <!-- 添加SVG连接线容器 -->
+    <svg class="connections-container">
+        <!-- 连接线将在这里动态生成 -->
+    </svg>
+</body>
+</html> 

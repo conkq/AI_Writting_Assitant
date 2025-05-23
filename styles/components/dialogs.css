@@ -1,0 +1,451 @@
+/* 编辑对话框 */
+.edit-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20000;
+    user-select: none;
+}
+
+.dialog-content {
+    background-color: var(--color-bg-primary);
+    padding: var(--spacing-xxl);
+    border-radius: var(--radius-xl);
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.dialog-content input,
+.dialog-content textarea {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    width: 100%;
+}
+
+.dialog-content input:focus,
+.dialog-content textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.1);
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+}
+
+.dialog-buttons button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+#save-edit {
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+}
+
+#save-edit:hover {
+    background-color: var(--color-primary-dark);
+}
+
+#cancel-edit {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+}
+
+#cancel-edit:hover {
+    background-color: var(--color-border);
+}
+
+/* 文件输入包装器 */
+.file-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+/* 自定义模型配置对话框 */
+.custom-model-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20000;
+    user-select: none;
+}
+
+.custom-model-content {
+    background-color: var(--color-bg-primary);
+    padding: var(--spacing-xxl);
+    border-radius: var(--radius-xl);
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.custom-model-content h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+    font-size: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-group label {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+
+.form-group input {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    width: 100%;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.1);
+}
+
+.form-group .hint {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+}
+
+.custom-model-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.custom-model-buttons button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.custom-model-buttons .save-btn {
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+}
+
+.custom-model-buttons .save-btn:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.custom-model-buttons .cancel-btn {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+}
+
+.custom-model-buttons .cancel-btn:hover {
+    background-color: var(--color-border);
+}
+
+/* Ollama模型配置对话框 */
+.ollama-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20000;
+    user-select: none;
+}
+
+.ollama-content {
+    background-color: var(--color-bg-primary);
+    padding: var(--spacing-xxl);
+    border-radius: var(--radius-xl);
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.ollama-content h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+    font-size: 18px;
+}
+
+.ollama-content .description {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+.ollama-content .description code {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.ollama-content .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.ollama-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.ollama-buttons button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.ollama-buttons .confirm-btn {
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+}
+
+.ollama-buttons .confirm-btn:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.ollama-buttons .cancel-btn {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+}
+
+.ollama-buttons .cancel-btn:hover {
+    background-color: var(--color-border);
+}
+
+.ollama-content .model-list {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-bg-primary);
+}
+
+.ollama-content .model-list .loading,
+.ollama-content .model-list .error {
+    padding: var(--spacing-md);
+    color: var(--color-text-secondary);
+    text-align: center;
+}
+
+.ollama-content .model-list .error {
+    color: var(--color-danger);
+    line-height: 1.5;
+}
+
+.ollama-content .model-option {
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.ollama-content .model-option:hover {
+    background-color: var(--color-bg-secondary);
+}
+
+.ollama-content .model-option input[type="radio"] {
+    margin: 0;
+    margin-top: 4px;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.ollama-content .model-option label {
+    cursor: pointer;
+    flex: 1;
+    margin: 0;
+    color: var(--color-text-primary);
+    min-width: 0;
+}
+
+.ollama-content .model-name {
+    font-weight: 500;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ollama-content .model-info {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.ollama-content .confirm-btn:disabled {
+    background-color: var(--color-border);
+    cursor: not-allowed;
+} 
+
+
+/* 输入组布局 */
+.input-group {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+/* 提示词输入框 */
+#edit-prompt {
+    flex: 2;
+    min-width: 300px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 风格选择器 */
+.style-selector {
+    flex: 1;
+    min-width: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.style-selector select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+}
+
+.style-selector label {
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+/* 对话框基础样式 */
+.export-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 400px;
+    z-index: 1000;
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.dialog-header h4 {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+}
+
+.dialog-body {
+    padding: 16px;
+}
+
+.format-options {
+    margin: 12px 0;
+}
+
+/* .md-export-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.md-export-btn:hover {
+    background: #0056b3;
+}
+
+.export-progress {
+    margin-top: 12px;
+    padding: 8px;
+    border-radius: 4px;
+    background: #f8f9fa;
+    min-height: 36px;
+}
+
+.export-progress .success {
+    color: #28a745;
+}
+
+.export-progress .error {
+    color: #dc3545;
+} */
+
+

@@ -1,0 +1,198 @@
+/* 端口容器 */
+.port-container {
+    position: absolute;
+    bottom: var(--spacing-xs);
+    right: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-sm);
+    align-items: flex-end;
+}
+
+/* 连接端口 */
+.connection-port {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    margin-top: var(--spacing-xl);
+    cursor: crosshair;
+    transition: all 0.2s;
+}
+
+.connection-port svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--color-orange);
+    transform: rotate(90deg);
+    transition: all 0.2s;
+}
+
+.connection-port:hover svg {
+    transform: rotate(90deg) scale(1.3);
+    filter: brightness(1.2);
+}
+
+/* 连接线容器 */
+.connections-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+/* SVG连接线 */
+.connection-line {
+    stroke: var(--color-success);
+    stroke-width: 2;
+    fill: none;
+    pointer-events: none;
+}
+
+.connection-line.temp {
+    stroke-dasharray: 4;
+    animation: dash 1s linear infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -8;
+    }
+}
+
+/* 文本卡片端口 */
+.text-card-port {
+    position: absolute;
+    top: var(--spacing-sm);
+    left: var(--spacing-sm);
+    width: 20px;
+    height: 20px;
+    cursor: crosshair;
+    transition: all 0.2s;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+.text-card-port svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--color-primary);
+    transition: all 0.2s;
+}
+
+/* 链式端口 */
+.text-card-chain-port {
+    position: absolute;
+    bottom: var(--spacing-sm);
+    left: var(--spacing-sm);
+    width: 20px;
+    height: 20px;
+    cursor: crosshair;
+    transition: all 0.2s;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.text-card-chain-port svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--color-purple);
+    transform: rotate(180deg);
+    transition: all 0.2s;
+}
+
+.text-card-chain-port:hover svg {
+    transform: rotate(180deg) scale(1.3);
+    filter: brightness(1.2);
+}
+
+/* 连接状态 */
+.text-card-port.prompt-connected svg {
+    transform: rotate(-90deg);
+}
+
+.text-card-port.chain-connected svg {
+    transform: rotate(0deg);
+}
+
+.text-card-chain-port.connected svg {
+    transform: rotate(0deg);
+}
+
+.text-card-port.connected svg path,
+.text-card-chain-port.connected svg path,
+.connection-port.connected svg path {
+    fill: var(--color-success);
+}
+
+/* 连接动画 */
+@keyframes pulse-socket {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    70% {
+        transform: scale(1.2);
+        filter: brightness(1.2);
+    }
+}
+
+@keyframes pulse-chain {
+    0%, 100% {
+        transform: rotate(180deg) scale(1);
+        filter: brightness(1);
+    }
+    70% {
+        transform: rotate(180deg) scale(1.2);
+        filter: brightness(1.2);
+    }
+}
+
+.text-card-port.connecting svg {
+    animation: pulse-socket 1.5s infinite;
+}
+
+.text-card-chain-port.connecting svg {
+    animation: pulse-chain 1.5s infinite;
+}
+
+/* 连接模式 */
+.connecting-mode {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+}
+
+.connecting-mode * {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    cursor: crosshair !important;
+}
+
+/* 端口标签 */
+.port-label {
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    white-space: nowrap;
+    color: var(--color-text-secondary);
+    background: rgba(255, 255, 255, 0.9);
+    padding: var(--spacing-xs) var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-xs);
+    pointer-events: none;
+    opacity: 1;
+    transition: all 0.2s;
+}
+
+.connection-port:hover .port-label {
+    transform: translateX(-50%) scale(1.1);
+    color: var(--color-text-primary);
+} 
